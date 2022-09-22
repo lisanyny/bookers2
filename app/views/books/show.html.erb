@@ -1,5 +1,26 @@
 <main>
-  <%= render 'list', books: Book.new, user: @user %>
+<%= render 'list', user: @user %>
+<div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+       <%= form_with model: @newbook, url: '/books', method: :post do |f| %>
+        <h2 class="mt-3">New book</h2>
+        <div class="form-group">
+          <label for="book_title">Title</label><br>
+          <%= f.text_field :title %>
+        </div>
+        <div class="form-group">
+          <label for="book_title">Opinion</label><br>
+          <%= f.text_area :body %>
+        </div>
+        <div class="form_with">
+          <%= f.submit 'Create Book', class: " btn btn-success" %>
+        </div>
+       <% end %>
+      </div>
+    </div>
+  </div>
+
       <div class="cil-md-8 offset-md-1">
         <h2>Book detail</h2>
         <table class="table table-hover table-inverse">
